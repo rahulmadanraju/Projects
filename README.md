@@ -1,6 +1,6 @@
 # Recognition_Systems
 The system of recognitions using OpenCV-Haarcascade for detection
-## OpenCV on Wheels
+## OpenCV
 
 **Unofficial** pre-built OpenCV packages for Python.
 
