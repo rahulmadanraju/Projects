@@ -34,7 +34,7 @@ def load_data():
     size = (150,150)
     output = []
     for dataset in datasets:
-        directory = "C:/Users/rahul/.spyder-py3/tasks/intel-image-classification/" + dataset
+        directory = "your path" + dataset
         images = []
         labels = [] 
         for folder in os.listdir(directory):
