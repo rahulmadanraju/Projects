@@ -18,13 +18,7 @@ import cv2
 #labelling of class names
 
 class_names = ['mountain', 'street', 'glacier', 'buildings', 'sea', 'forest']
-class_names_label = {'mountain': 0,
-                    'street' : 1,
-                    'glacier' : 2,
-                    'buildings' : 3,
-                    'sea' : 4,
-                    'forest' : 5
-                    }
+class_names_label = {'mountain': 0,'street' : 1, 'glacier' : 2, 'buildings' : 3, 'sea' : 4, 'forest' : 5}
 nb_classes = 6
 
 #loading the data
@@ -34,7 +28,7 @@ def load_data():
     size = (150,150)
     output = []
     for dataset in datasets:
-        directory = "your path" + dataset
+        directory = "your file path" + dataset
         images = []
         labels = [] 
         for folder in os.listdir(directory):
