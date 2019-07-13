@@ -1,5 +1,5 @@
 # Image Classification using Keras on TensorFLow and OpenCV
-Classification of Images based on the datasets availed from the Kaggle. The algorithm is impemented with the utilization of libraries such as Keras, TensorFlow, OpenCV, ScikitLearn, etc.
+Classification of Images based on the datasets availed from the Kaggle (https://www.kaggle.com/datasets). The algorithm is impemented with the utilization of libraries such as Keras, TensorFlow, OpenCV, ScikitLearn, etc.
 Classifier: 2D CNN
 Epochs: 10
 Optimizer: Adam
