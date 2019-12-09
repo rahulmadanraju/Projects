@@ -11,3 +11,9 @@ NLP Applications:
 * Document Summarization
 * Speech Recognition
 
+While these are some of the preferred libraries in NLP
++ NLTK - Natural Language Toolkit - mainly depends on the POS (parts of speech)
++ SpaCy
++ Stanford NLP
++ Open NLP
+
