@@ -17,3 +17,10 @@ While these are some of the preferred libraries in NLP
 + Stanford NLP
 + Open NLP
 
+
+Here, we show the sample of NLP being carried on the restaurant reviews data
+1. Implement Machine Learning model
+  - Clean the texts to preprocess the data
+  - Create Bag of Words model - assign multiple cols to word based on its existence and repeatation
+  - Apply various ML to the BOM (Bag of Models)
+
