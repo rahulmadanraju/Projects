@@ -3,7 +3,7 @@
 
 # import the necessary packages
 from tensorflow.keras.models import load_model
-from pyimagesearch import config
+from detectorfiles import config
 from imutils import paths
 import numpy as np
 import imutils
