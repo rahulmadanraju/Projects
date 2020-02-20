@@ -15,16 +15,16 @@ Taking the references of the given information and sources available, I made a s
 				
 Yolo v3 is the thrid version of Yolo as an object detection model which is considered to give better accuracy on detection. The model consists of 5 residual layers and three multi-scale detection layers with the grid size of:
 	
-	* 13x13 - for detecting large objects
+* 13x13 - for detecting large objects
 	
-	* 26x26 - for detecting medium objects
+* 26x26 - for detecting medium objects
 	
-	* 52x52 - for detecting small objects
+* 52x52 - for detecting small objects
 					
 As per the task assigned, the smallest of the layers are to be removed i.e. 52x52 and re-implement the model including 2 multi-scale detection
 We know the model architecture contains 106 layers in which 75 are convolutional layers and remaining consists of shortcut, upsample, yolo and route layers.
 Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolo-weights which is attached to this folder and the following were observed and proposed:
-	1. The layers from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by 26  and 52 through upsample by 2 at 85 and 97 layer for Yolo. 
+* The layers from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by 26  and 52 through upsample by 2 at 85 and 97 layer for Yolo. 
 	
 Knowing the presence of layers in the model, the following approach was made
 	1. Firstly, the layers from 12-35 was removed/commented which had consisting of 52x52 resulting to a custom model
