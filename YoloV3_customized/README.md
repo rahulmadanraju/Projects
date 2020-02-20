@@ -52,7 +52,7 @@ Understanding the presence of layers in the model, the following approach was ma
 
 ## Conclusion
 
-Here we observe how the v3 model is designed by removing 52x52 layers and implement the same for two scale multi detection with a grid size of 13 and 26.
+Here we observe how the v3 model is designed by removing 52x52 layers and implement the same for two multi-scale detection with a grid size of 13 and 26. It is preferably used for detecting medium and large sized objects. 
 					   			
 				
 ----------------------------------------------------------------------------------------------------------------------------------------
