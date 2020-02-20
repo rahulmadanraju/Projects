@@ -3,15 +3,15 @@
 
 ## Connect a Webcam to the system and obtain a live stream video using OpenCV.
 
-	* Display the live feed in a window.
-	* Allow user to interact with the image using key inputs from the keyboard.
-	* User should be able to,
-		- Convert the live image to gray-scale
-		- Convert the image to edge only display
-		- Swap the R & G channels and eliminate B channel of the color image and display the resulting image
-		- Save a snapshot after pressing a key, assign an automatic incremental filename to this snapshot.
-		- Retain all the images acquired so that the user is then able to see all the snapshots taken of this live-stream
-		-  Provide a simple ReadMe file along with your program specifying all the user inputs needed for steps 'a' to 'd' above
+  * Display the live feed in a window.
+  * Allow user to interact with the image using key inputs from the keyboard.
+  * User should be able to,
+  	- Convert the live image to gray-scale
+	- Convert the image to edge only display
+	- Swap the R & G channels and eliminate B channel of the color image and display the resulting image
+	- Save a snapshot after pressing a key, assign an automatic incremental filename to this snapshot.
+	- Retain all the images acquired so that the user is then able to see all the snapshots taken of this live-stream
+	-  Provide a simple ReadMe file along with your program specifying all the user inputs needed for steps 'a' to 'd' above
 				
 ----------------------------------------------------------------------------------------------------------------------------------------
 
