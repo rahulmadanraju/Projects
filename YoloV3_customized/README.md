@@ -23,7 +23,7 @@ Yolo v3 is the third version of Yolo, on simple terms - an object detection mode
 	
 	- 52x52 - for detecting small objects
 	
-# Approach
+## Approach
 					
 As per the task assigned, the smallest of the layers are to be removed i.e. 52x52 and re-implement the model including 2 multi-scale detection
 
