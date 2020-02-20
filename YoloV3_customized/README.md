@@ -36,7 +36,7 @@ Understanding the presence of layers in the model, the following approach was ma
 
 	- Therefore, the values of stride and kernel have to be determined to bring down the size of the input
 	
-        - On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects. (if only two scale detection layers are used)
+	- On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects. (if only two scale detection layers are used)
 	
 	- Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
 	
