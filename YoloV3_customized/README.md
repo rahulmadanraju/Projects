@@ -33,22 +33,26 @@ We know the model architecture contains 106 layers in which 75 are convolutional
 <img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/YOLOv3_architecture.png", width="400", height="400" />
 <p>
 
-Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolo-weights which is attached to this folder and the following were observed and proposed:
+Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolov3-weights which is attached to this folder and the following were observed and proposed:
 
 * The layers are arranged from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by yolo detection 1, 2 and 3.  
 	
 Understanding the presence of layers in the model, the following approach was made
-* Firstly, the layers from 12-35 was removed/commented which had consisted of 52x52 resulting in the formation to a custom model
+* Copy the code from yolo_model.py to a new file called yolov3_custom_model.py for customization of the model
+* 
+* Firstly, the layers from 12-35 (i.e. 24 layers) was removed/commented which had consisted of 52x52 resulting in the formation to a custom model
+* the skip_layer at 36 can either be deleted or retained  based on the requirement of the third detection layer of yolo (i.e yolo_3)
 
-* The transition of convolution from input 104x104 to output 26x26 had to be performed.
+* The transition of convolution from input 104x104 to output 26x26 had to be performed. (i.e from layer 11 to 37)
 
 	- Therefore, the values of stride and kernel have to be determined to bring down the size of the input
 	
-	- On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects. (if only two scale detection layers are used)
+	- On calculating using the formula and re-verifying it, the stride = 4 and kernel = 5 was used to downsample the input
+	- (why 5? - make a fair trade to detect small-ranged-medium and also medium objects - if only two scale detection layers are used), we can also go with bigger kernel, but it solely depends on the size of the object to be detected
 	
-	- Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
+	- Now there is a downsample from 104x104 to 26x26 in the network and continues till the yolo_2 detection layer (at layer-94)
 	
-* We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model "or" if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
+* We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model "or" if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very-small object detection.
 
 * Run the custom model again along with yolov3-weights and check for errors. when the model is error free you see the summary of the model as shown below.
 
@@ -61,7 +65,7 @@ Understanding the presence of layers in the model, the following approach was ma
 
 ## Conclusion
 
-Here we observe how the v3 model is designed by removing 52x52 layers and implement the same for two multi-scale detection with a grid size of 13 and 26. It is preferably used for detecting medium and large sized objects. 
+Here we observe how the v3 model is designed by removing 52x52 layers and implement the same for two multi-scale detection with a grid size of 13 and 26. The model becomes much faster with the removal of layers and preferably used for detecting medium and large sized objects: The following implementation can also be carried on the other grid sizes based on the requirements of object detection. 
 					   			
 				
 ----------------------------------------------------------------------------------------------------------------------------------------
