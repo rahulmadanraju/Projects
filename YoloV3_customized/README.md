@@ -11,7 +11,7 @@ In its latest variant version 3, which they have implemented based on Darknet-53
 
 # Solution 2 - In order to implement the above task following approach was taken:
 				
-Taking the references to the given information and sources available, I made a study analysis of the model structure and here it is:
+Taking the references to the given information and sources available, I made a study analysis of the model structure.
 
 ## Introduction
 
