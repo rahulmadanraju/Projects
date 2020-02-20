@@ -2,6 +2,7 @@
 # Task 1 - 
 
 Connect a Webcam to the system and obtain a live stream video using OpenCV.
+
 	* Display the live feed in a window.
 	* Allow user to interact with the image using key inputs from the keyboard.
 	* User should be able to,
@@ -17,10 +18,11 @@ Connect a Webcam to the system and obtain a live stream video using OpenCV.
 # Solution 1 - 
 
 Please click the below keys to make the following observations on the above implementation:
-		* Press "a" - To observe the live stream in gray-scale
-		* Press "b" - To observe the live stream in edge-only display
-		* Press "c" - To observe the live stream with selective swapped channels
-		* Press "d" - To save the snapshot in the respective format and return back to default
+
+	* Press "a" - To observe the live stream in gray-scale
+	* Press "b" - To observe the live stream in edge-only display
+	* Press "c" - To observe the live stream with selective swapped channels
+	* Press "d" - To save the snapshot in the respective format and return back to default
 			
 Here are the results of the above task-
 
