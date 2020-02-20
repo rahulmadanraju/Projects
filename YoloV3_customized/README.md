@@ -13,7 +13,7 @@ In its latest variant version 3, which they have implemented based on Darknet-53
 				
 Taking the references to the given information and sources available, I made a study analysis of the model structure.
 				
-Yolo v3 is the third version of Yolo is an object detection model which is considered to give better accuracy on detection. The model consists of 5 residual layers and three multi-scale detection layers with the grid size of:
+Yolo v3 is the third version of Yolo, on simple terms - an object detection model which is considered to give better accuracy on detection. The model consists of five residual layers and three multi-scale detection layers with the grid size of:
 	
 * 13x13 - for detecting large objects
 	
@@ -27,14 +27,14 @@ We know the model architecture contains 106 layers in which 75 are convolutional
 
 Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolo-weights which is attached to this folder and the following were observed and proposed:
 
-* The layers from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by 26  and 52 through upsample by 2 at 85 and 97 layer for Yolo. 
+* The layers are arranged from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by yolo detection 1, 2 and 3.  
 	
-Knowing the presence of layers in the model, the following approach was made
-* Firstly, the layers from 12-35 was removed/commented which had consisted of 52x52 resulting tp formation to a custom model
+Understanding the presence of layers in the model, the following approach was made
+* Firstly, the layers from 12-35 was removed/commented which had consisted of 52x52 resulting in the formation to a custom model
 * The transition of convolution from input 104x104 to output 26x26 had to be performed.
 
 	a. Therefore, the values of stride and kernel have to be determined to bring down the size of the input 
-        b. On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects too. (if only two scale detection layers are used)
+        b. On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects. (if only two scale detection layers are used)
 	c. Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
 	
 * We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model.
