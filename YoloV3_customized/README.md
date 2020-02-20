@@ -27,16 +27,18 @@ Therefore to understand more on the architecture of the V3 model and know the pr
 * The layers from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by 26  and 52 through upsample by 2 at 85 and 97 layer for Yolo. 
 	
 Knowing the presence of layers in the model, the following approach was made
-	1. Firstly, the layers from 12-35 was removed/commented which had consisting of 52x52 resulting to a custom model
-	2. The transition of convolution from input 104x104 to output 26x26 had to be performed.
-		a. Therefore, the values of stride and kernel has to be determined to bring down the size of the input
-		b. On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects too.(if only two scale detection layers are used)
-		c. Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
-	3. We also see that, the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can elimiate/comment the third detection layer in the model.
-						"or"
-	   if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
-	4. Run the custom model again along with yolov3-weights and check for errors
-	5. Made sure the code is working and error free and model weights are being saved to the directory.
+* Firstly, the layers from 12-35 was removed/commented which had consisting of 52x52 resulting to a custom model
+* The transition of convolution from input 104x104 to output 26x26 had to be performed.
+
+	a. Therefore, the values of stride and kernel has to be determined to bring down the size of the input
+	b. On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects too.(if only two scale detection layers are used)
+	
+	c. Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
+* We also see that, the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can elimiate/comment the third detection layer in the model.
+	"or"
+	d. if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
+* Run the custom model again along with yolov3-weights and check for errors
+* Made sure the code is working and error free and model weights are being saved to the directory.
 					   			
 				
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
