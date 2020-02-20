@@ -1,7 +1,7 @@
 
-# Task 1 - 
+# Task 1 
 
-Connect a Webcam to the system and obtain a live stream video using OpenCV.
+## Connect a Webcam to the system and obtain a live stream video using OpenCV.
 
 	* Display the live feed in a window.
 	* Allow user to interact with the image using key inputs from the keyboard.
@@ -15,7 +15,7 @@ Connect a Webcam to the system and obtain a live stream video using OpenCV.
 				
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-# Solution 1 - 
+## Solution 1
 
 Please click the below keys to make the following observations on the above implementation:
 
