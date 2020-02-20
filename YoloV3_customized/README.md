@@ -31,16 +31,21 @@ Therefore to understand more on the architecture of the V3 model and know the pr
 	
 Understanding the presence of layers in the model, the following approach was made
 * Firstly, the layers from 12-35 was removed/commented which had consisted of 52x52 resulting in the formation to a custom model
+
 * The transition of convolution from input 104x104 to output 26x26 had to be performed.
 
-	a. Therefore, the values of stride and kernel have to be determined to bring down the size of the input 
-        b. On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects. (if only two scale detection layers are used)
-	c. Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
+	- Therefore, the values of stride and kernel have to be determined to bring down the size of the input
+	
+        - On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect small-ranged-medium objects. (if only two scale detection layers are used)
+	
+	- Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
 	
 * We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model.
 	"or"
-	d. if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
+	- if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
+
 * Run the custom model again along with yolov3-weights and check for errors
+
 * Made sure the code is working and error-free and model weights are being saved to the directory.
 					   			
 				
