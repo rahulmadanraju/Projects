@@ -33,7 +33,9 @@ We know the model architecture contains 106 layers in which 75 are convolutional
 <img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/YOLOv3_architecture.png", width="400", height="400" />
 <p>
 
-Therefore to understand more on the architecture of the V3 model and know the layers, I made use of the code yolo_model.py along with yolov3-weights which is attached to this folder and the following points were observed:
+Therefore to understand more on the architecture of the V3 model and know the layers, I made use of the code yolo_model.py along with yolov3-weights which can be downloaded from this link: https://pjreddie.com/media/files/yolov3.weights .
+
+The following points were observed:
 
 * The layers are arranged from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by yolo detection 1, 2 and 3.  
 	
