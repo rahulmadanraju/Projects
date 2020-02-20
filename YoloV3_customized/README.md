@@ -44,9 +44,9 @@ Knowing the presence of layers in the model, the following approach was made
 * Made sure the code is working and error-free and model weights are being saved to the directory.
 					   			
 				
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
 		
-References used: 
+## References used: 
 * Experiencor - https://github.com/experiencor/keras-yolo3/ 
 * Darknet-53 - https://pjreddie.com/darknet/yolo/
 * MDPI - https://www.mdpi.com/2072-4292/12/1/44/htm
@@ -56,5 +56,5 @@ References used:
 
 
 
-Images used: 
+## Images used: 
 * Structure of the Darknet53 convolutional network - https://www.mdpi.com/2072-4292/12/1/44/htm
