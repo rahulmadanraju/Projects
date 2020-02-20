@@ -30,7 +30,7 @@ As per the task assigned, the smallest of the layers are to be removed i.e. 52x5
 We know the model architecture contains 106 layers in which 75 are convolutional layers and remaining consists of shortcuts, upsample, yolo and route layers.
 
 <br>
-<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/YOLOv3_architecture.png", width="500", height="700" />
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/YOLOv3_architecture.png", width="300", height="400" />
 <br>
 
 Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolo-weights which is attached to this folder and the following were observed and proposed:
@@ -55,7 +55,7 @@ Understanding the presence of layers in the model, the following approach was ma
 * Made sure the code is working and error-free and model weights are being saved to the directory.
 
 <br>
-<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Image2.png", width="500", height="700" />
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Image2.png", width="300", height="400" />
 <br>
 
 
