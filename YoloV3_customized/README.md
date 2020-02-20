@@ -29,6 +29,10 @@ As per the task assigned, the smallest of the layers are to be removed i.e. 52x5
 
 We know the model architecture contains 106 layers in which 75 are convolutional layers and remaining consists of shortcuts, upsample, yolo and route layers.
 
+<br>
+<img src="https://github.com/rahulmadanraju/Machine-Learning-Engineer-Udacity/blob/master/Images/syl2.JPG" />
+<br>
+
 Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolo-weights which is attached to this folder and the following were observed and proposed:
 
 * The layers are arranged from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by yolo detection 1, 2 and 3.  
@@ -46,9 +50,14 @@ Understanding the presence of layers in the model, the following approach was ma
 	
 * We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model "or" if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
 
-* Run the custom model again along with yolov3-weights and check for errors. when the model is error free you see the summary of the model as shown below:
+* Run the custom model again along with yolov3-weights and check for errors. when the model is error free you see the summary of the model as shown below.
 
 * Made sure the code is working and error-free and model weights are being saved to the directory.
+
+<br>
+<img src="https://github.com/rahulmadanraju/Machine-Learning-Engineer-Udacity/blob/master/Images/syl2.JPG" />
+<br>
+
 
 ## Conclusion
 
