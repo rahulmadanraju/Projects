@@ -34,7 +34,6 @@ Here are the results of the above task-
 			
 		
 ---------------------------------------------------------------------------------------------------------------------------------------
-		
-References used: 
-a - CookBook - Opencv3 Computer Vision with Python 
-b - Keyboard Control for Save image and DestroyWindow in OpenCV - Manivannan Murugavel 
+## References used: 
+CookBook - Opencv3 Computer Vision with Python 
+Keyboard Control for Save image and DestroyWindow in OpenCV - Manivannan Murugavel 
