@@ -11,17 +11,17 @@ In its latest variant version 3, which they have implemented based on Darknet-53
 
 # Solution 2 - In order to implement the above task following approach was taken:
 				
-Taking the references to the given information and sources available, I made a study analysis of the model structure
+Taking the references to the given information and sources available, I made a study analysis of the model structure and here it is:
 
 ## Introduction
 
 Yolo v3 is the third version of Yolo, on simple terms - an object detection model which is considered to give better accuracy on detection. The model consists of five residual layers and three multi-scale detection layers with the grid size of:
 	
-	- 13x13 - for detecting large objects
+	* 13x13 - for detecting large objects
 	
-	- 26x26 - for detecting medium objects
+	* 26x26 - for detecting medium objects
 	
-	- 52x52 - for detecting small objects
+	* 52x52 - for detecting small objects
 	
 ## Approach
 					
@@ -48,7 +48,7 @@ Understanding the presence of layers in the model, the following approach was ma
 	- (why 5? - make a fair trade to detect small-ranged-medium and also medium objects - if only two scale detection layers are used), we can also go with bigger kernel, but it solely depends on the size of the object to be detected
 	- Now there is a downsample from 104x104 to 26x26 in the network and continues till the yolo_2 detection layer (at layer-94)
 	
-* We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model "or" if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very-small object detection.
+* We also see that the model contains 3 detection layers of which the third detection layer yolo_3 (at 99 to 106) is not useful without the 52x52 layers. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model "or" if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very-small object detection.
 
 * Run the custom model again along with yolov3-weights and check for errors. when the model is error free you see the summary of the model as shown below.
 
