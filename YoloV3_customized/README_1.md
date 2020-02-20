@@ -24,7 +24,12 @@ Please click the below keys to make the following observations on the above impl
 			
 Here are the results of the above task-
 
-
+<p align="center"> 
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Snapshot_0.png", width="400", height="400" />
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Snapshot_1.png", width="400", height="400" />
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Snapshot_2.png", width="400", height="400" />
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Snapshot_3.png", width="400", height="400" />
+<p>
       
 			
 		
