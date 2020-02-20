@@ -38,18 +38,14 @@ Therefore to understand more on the architecture of the V3 model and know the pr
 * The layers are arranged from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by yolo detection 1, 2 and 3.  
 	
 Understanding the presence of layers in the model, the following approach was made
-* Copy the code from yolo_model.py to a new file called yolov3_custom_model.py for customization of the model
-* 
-* Firstly, the layers from 12-35 (i.e. 24 layers) was removed/commented which had consisted of 52x52 resulting in the formation to a custom model
-* the skip_layer at 36 can either be deleted or retained  based on the requirement of the third detection layer of yolo (i.e yolo_3)
-
+* Copy the code from yolo_model.py to a new file called yolov3_custom_model.py for customization of the model 
+* The layers from 12-35 (i.e. 24 layers) was removed/commented which had 52x52, resulting in the formation of a custom model
+* The skip_layer at 36 can either be deleted or retained based on the requirement of the third detection layer of yolo (i.e yolo_3)
 * The transition of convolution from input 104x104 to output 26x26 had to be performed. (i.e from layer 11 to 37)
 
 	- Therefore, the values of stride and kernel have to be determined to bring down the size of the input
-	
 	- On calculating using the formula and re-verifying it, the stride = 4 and kernel = 5 was used to downsample the input
 	- (why 5? - make a fair trade to detect small-ranged-medium and also medium objects - if only two scale detection layers are used), we can also go with bigger kernel, but it solely depends on the size of the object to be detected
-	
 	- Now there is a downsample from 104x104 to 26x26 in the network and continues till the yolo_2 detection layer (at layer-94)
 	
 * We also see that the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have been asked to implement the model for only 2 detection layers, we can eliminate/comment on the third detection layer in the model "or" if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very-small object detection.
