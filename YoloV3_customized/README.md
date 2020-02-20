@@ -3,11 +3,11 @@
 Task 2 - Object Detection framework Yolo V3
 In its latest variant version 3, which they have implemented based on Darknet-53, it has 3 multi-scale detection layers with grid size of 13. 26 & 52.
 	
-	1. Your task is to remove the smallest of these three layers (with 52x52 grid) and re-implement the Yolo v3 to include only 2 multi-scale detection layers those of 13 and 26 grid sizes.
-	2. For the reference of Yolo v3 you can use following repository on Github. Ref: https://github.com/experiencor/keras-yolo3/
-	3. Along with the source code, describe the possible approaches that you will take and also explain your thought process as additional documentation.
-				
----------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Your task is to remove the smallest of these three layers (with 52x52 grid) and re-implement the Yolo v3 to include only 2 multi-scale detection layers those of 13 and 26 grid sizes.
+	
+	For the reference of Yolo v3 you can use following repository on Github. Ref: https://github.com/experiencor/keras-yolo3/
+	
+	Along with the source code, describe the possible approaches that you will take and also explain your thought process as additional documentation.
 
 Solution 2 - In order to implement the above task following approach was taken:
 				
