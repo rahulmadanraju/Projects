@@ -12,7 +12,9 @@ In its latest variant version 3, which they have implemented based on Darknet-53
 # Solution 2 - In order to implement the above task following approach was taken:
 				
 Taking the references to the given information and sources available, I made a study analysis of the model structure.
-				
+
+## Introduction
+
 Yolo v3 is the third version of Yolo, on simple terms - an object detection model which is considered to give better accuracy on detection. The model consists of five residual layers and three multi-scale detection layers with the grid size of:
 	
 	- 13x13 - for detecting large objects
@@ -20,6 +22,8 @@ Yolo v3 is the third version of Yolo, on simple terms - an object detection mode
 	- 26x26 - for detecting medium objects
 	
 	- 52x52 - for detecting small objects
+	
+# Approach
 					
 As per the task assigned, the smallest of the layers are to be removed i.e. 52x52 and re-implement the model including 2 multi-scale detection
 
