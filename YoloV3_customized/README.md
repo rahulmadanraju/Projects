@@ -55,7 +55,7 @@ Understanding the presence of layers in the model, the following approach was ma
 * Made sure the code is working and error-free and model weights are being saved to the directory.
 
 <br>
-<img src="https://github.com/rahulmadanraju/Machine-Learning-Engineer-Udacity/blob/master/Images/syl2.JPG" />
+<img src="https://github.com/rahulmadanraju/Projects/blob/master/YoloV3_customized/Images_Report/Image2.png", width="500", height="700" />
 <br>
 
 
