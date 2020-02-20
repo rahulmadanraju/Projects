@@ -15,11 +15,11 @@ Taking the references to the given information and sources available, I made a s
 				
 Yolo v3 is the third version of Yolo, on simple terms - an object detection model which is considered to give better accuracy on detection. The model consists of five residual layers and three multi-scale detection layers with the grid size of:
 	
-* 13x13 - for detecting large objects
+	- 13x13 - for detecting large objects
 	
-* 26x26 - for detecting medium objects
+	- 26x26 - for detecting medium objects
 	
-* 52x52 - for detecting small objects
+	- 52x52 - for detecting small objects
 					
 As per the task assigned, the smallest of the layers are to be removed i.e. 52x52 and re-implement the model including 2 multi-scale detection
 
