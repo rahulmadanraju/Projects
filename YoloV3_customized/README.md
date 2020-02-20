@@ -1,135 +1,64 @@
-# YOLO3 (Detection, Training, and Evaluation)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Dataset and Model
+Task 2 - Object Detection framework Yolo V3
+			In its latest variant version 3, which they have implemented based on Darknet-53, it has 3 multi-scale detection layers with grid size of 13. 26 & 52.
+				1. Your task is to remove the smallest of these three layers (with 52x52 grid) and re-implement the Yolo v3 to include only 2 multi-scale detection 
+				layers those of 13 and 26 grid sizes.
+				
+				2. For the reference of Yolo v3 you can use following repository on Github. Ref: https://github.com/experiencor/keras-yolo3/
+				
+				3. Along with the source code, describe the possible approaches that you will take and also explain your thought process as additional documentation.
+				
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Dataset | mAP | Demo | Config | Model
-:---:|:---:|:---:|:---:|:---:
-Kangaroo Detection (1 class) (https://github.com/experiencor/kangaroo) | 95% | https://youtu.be/URO3UDHvoLY | check zoo | https://bit.ly/39rLNoE
-License Plate Detection (European in Romania) (1 class) (https://github.com/RobertLucian/license-plate-dataset) | 90% | https://youtu.be/HrqzIXFVCRo | check zoo | https://bit.ly/2tIpvPl
-Raccoon Detection (1 class) (https://github.com/experiencor/raccoon_dataset) | 98% | https://youtu.be/lxLyLIL7OsU | check zoo | https://bit.ly/39rLNoE
-Red Blood Cell Detection (3 classes) (https://github.com/experiencor/BCCD_Dataset) | 84% | https://imgur.com/a/uJl2lRI | check zoo | https://bit.ly/39rLNoE
-VOC (20 classes) (http://host.robots.ox.ac.uk/pascal/VOC/voc2012/) | 72% | https://youtu.be/0RmOI6hcfBI | check zoo | https://bit.ly/39rLNoE
+Solution 2 - In order to implement the above task following approach was taken:
+				
+				Taking the references of the given information and sources available, I made a study analysis on the model structure.
+				
+				Yolo v3 is the thrid version of Yolo as an object detection model which is considered to give better accuracy on detection. The model consists 
+				of 5 residual layers and three multi-scale detection layers with the grid size of:
+					1. 13x13 - for detecting large objects
+					2. 26x26 - for detecting medium objects
+					3. 52x52 - for detecting small objects
+					
+				As per the task assigned, the smallest of the layers are to be removed i.e. 52x52 and re-implement the model including 2 multi-scale detection
+				
+				We know the model architecture contains 106 layers in which 75 are convolutional layers and remaining consists of shortcut, upsample, yolo and route layers.
+				Therefore to understand more on the architecture of the V3 model and know the presence of layers in the model, I made use of the code yolo_model.py along with yolo-weights which is 
+				attached to this folder and the following were observed and proposed:
+				
+					1. The layers from 1-3: 208x208, 5-10: 104x104, 12-35: 52x52, 37-60: 26x26, 62-84: 13x13 followed by 26  and 52 through upsample by 2 at 85 and 97 layer for Yolo.
+				
+				Knowing the presence of layers in the model, the following approach was made
+				
+					1. Firstly, the layers from 12-35 was removed/commented which had consisting of 52x52 resulting to a custom model
+					2. The transition of convolution from input 104x104 to output 26x26 had to be performed.
+						a. Therefore, the values of stride and kernel has to be determined to bring down the size of the input
+						b. On calculating and re-verifying, the stride = 4 and kernel = 5 was used to downsample the input and at the same time make a fair trade to detect 
+						small-ranged-medium objects too.(if only two scale detection layers are used)
+						c. Now there is a downsample from 104x104 to 26x26 in the network and continues further till the yolo layer-94
+					3. We also see that, the model contains 3 detection layers of which the third detection layer at 99 to 106 is not useful without the 52x52 layer. Also, since we have 
+						been asked to implement the model for only 2 detection layers, we can elimiate/comment the third detection layer in the model.
+						
+						"or"
+						
+						if needed, we can upsample the 97th layer by 4 to make a transition from 26x26 to 104x104 and use the third detection model for very small object detection.
+						
+					4. Run the custom model again along with yolov3-weights and check for errors
+					5. Made sure the code is working and error free and model weights are being saved to the directory.
+					   			
+				
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+References used: 
+a. Experiencor - https://github.com/experiencor/keras-yolo3/ 
+b. Darknet-53 - https://pjreddie.com/darknet/yolo/
+c. MDPI - https://www.mdpi.com/2072-4292/12/1/44/htm
+d. Machine Learning Mastery - https://machinelearningmastery.com/how-to-perform-object-detection-with-yolov3-in-keras/
+e. Cyberailab - https://www.cyberailab.com/post/a-closer-look-at-yolov3
+f. Paperspace : Ayoosh - https://blog.paperspace.com/tag/series-yolo/ and https://github.com/ayooshkathuria/pytorch-yolo-v3
 
-## Todo list:
-- [x] Yolo3 detection
-- [x] Yolo3 training (warmup and multi-scale)
-- [x] mAP Evaluation
-- [x] Multi-GPU training
-- [x] Evaluation on VOC
-- [ ] Evaluation on COCO
-- [ ] MobileNet, DenseNet, ResNet, and VGG backends
 
-## Installing
 
-To install the dependencies, run
-```bash
-pip install -r requirements.txt
-```
-And for the GPU to work, make sure you've got the drivers installed beforehand (CUDA).
-
-It has been tested to work with Python 2.7.13 and 3.5.3.
-
-## Detection
-
-Grab the pretrained weights of yolo3 from https://pjreddie.com/media/files/yolov3.weights.
-
-```python yolo3_one_file_to_detect_them_all.py -w yolo3.weights -i dog.jpg``` 
-
-## Training
-
-### 1. Data preparation 
-
-Download the Raccoon dataset from from https://github.com/experiencor/raccoon_dataset.
-
-Organize the dataset into 4 folders:
-
-+ train_image_folder <= the folder that contains the train images.
-
-+ train_annot_folder <= the folder that contains the train annotations in VOC format.
-
-+ valid_image_folder <= the folder that contains the validation images.
-
-+ valid_annot_folder <= the folder that contains the validation annotations in VOC format.
-    
-There is a one-to-one correspondence by file name between images and annotations. If the validation set is empty, the training set will be automatically splitted into the training set and validation set using the ratio of 0.8.
-
-Also, if you've got the dataset split into 2 folders such as one for images and the other one for annotations and you need to set a custom size for the validation set, use `create_validation_set.sh` script to that. The script expects the following parameters in the following order:
-```bash
-./create_validation_set.sh $param1 $param2 $param3 $param4
-# 1st param - folder where the images are found
-# 2nd param - folder where the annotations are found
-# 3rd param - number of random choices (aka the size of the validation set in absolute value)
-# 4th param - folder where validation images/annots end up (must have images/annots folders inside the given directory as the 4th param)
-```
-
-### 2. Edit the configuration file
-The configuration file is a json file, which looks like this:
-
-```python
-{
-    "model" : {
-        "min_input_size":       352,
-        "max_input_size":       448,
-        "anchors":              [10,13,  16,30,  33,23,  30,61,  62,45,  59,119,  116,90,  156,198,  373,326],
-        "labels":               ["raccoon"]
-    },
-
-    "train": {
-        "train_image_folder":   "/home/andy/data/raccoon_dataset/images/",
-        "train_annot_folder":   "/home/andy/data/raccoon_dataset/anns/",      
-          
-        "train_times":          10,             # the number of time to cycle through the training set, useful for small datasets
-        "pretrained_weights":   "",             # specify the path of the pretrained weights, but it's fine to start from scratch
-        "batch_size":           16,             # the number of images to read in each batch
-        "learning_rate":        1e-4,           # the base learning rate of the default Adam rate scheduler
-        "nb_epoch":             50,             # number of epoches
-        "warmup_epochs":        3,              # the number of initial epochs during which the sizes of the 5 boxes in each cell is forced to match the sizes of the 5 anchors, this trick seems to improve precision emperically
-        "ignore_thresh":        0.5,
-        "gpus":                 "0,1",
-
-        "saved_weights_name":   "raccoon.h5",
-        "debug":                true            # turn on/off the line that prints current confidence, position, size, class losses and recall
-    },
-
-    "valid": {
-        "valid_image_folder":   "",
-        "valid_annot_folder":   "",
-
-        "valid_times":          1
-    }
-}
-
-```
-
-The ```labels``` setting lists the labels to be trained on. Only images, which has labels being listed, are fed to the network. The rest images are simply ignored. By this way, a Dog Detector can easily be trained using VOC or COCO dataset by setting ```labels``` to ```['dog']```.
-
-Download pretrained weights for backend at:
-
-https://bit.ly/39rLNoE
-
-**This weights must be put in the root folder of the repository. They are the pretrained weights for the backend only and will be loaded during model creation. The code does not work without this weights.**
-
-### 3. Generate anchors for your dataset (optional)
-
-`python gen_anchors.py -c config.json`
-
-Copy the generated anchors printed on the terminal to the ```anchors``` setting in ```config.json```.
-
-### 4. Start the training process
-
-`python train.py -c config.json`
-
-By the end of this process, the code will write the weights of the best model to file best_weights.h5 (or whatever name specified in the setting "saved_weights_name" in the config.json file). The training process stops when the loss on the validation set is not improved in 3 consecutive epoches.
-
-### 5. Perform detection using trained weights on image, set of images, video, or webcam
-`python predict.py -c config.json -i /path/to/image/or/video`
-
-It carries out detection on the image and write the image with detected bounding boxes to the same folder.
-
-If you wish to change the object threshold or IOU threshold, you can do it by altering `obj_thresh` and `nms_thresh` variables. By default, they are set to `0.5` and `0.45` respectively.
-
-## Evaluation
-
-`python evaluate.py -c config.json`
-
-Compute the mAP performance of the model defined in `saved_weights_name` on the validation dataset defined in `valid_image_folder` and `valid_annot_folder`.
+Images used: 
+a. Structure of the Darknet53 convolutional network - https://www.mdpi.com/2072-4292/12/1/44/htm
