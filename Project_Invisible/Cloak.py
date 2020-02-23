@@ -8,7 +8,7 @@ video_capture = cv2.VideoCapture(0)
 fourcc = cv2.VideoWriter_fourcc('m','p','4','v')# note the lower case
 frame_width = int(video_capture.get(3))
 frame_height = int(video_capture.get(4))
-out = cv2.VideoWriter('Harry_Potter.mp4',fourcc , 100, (frame_width,frame_height), True)
+out = cv2.VideoWriter('Project_Invisible.mp4',fourcc , 100, (frame_width,frame_height), True)
 
 time.sleep(3)
 background = 0
