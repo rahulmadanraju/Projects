@@ -1,8 +1,8 @@
 # Project Invisible ##
 
-The project is similar to an housing video frames for green backgorund as we see in recording studions. The foreground is masked and background is replaced based on the requirement. 
+The project is similar to an housing video frames for green backgorund as we see in recording stations. The foreground is masked and background is replaced based on the requirement. 
 
-The logic here is quite opposite to the one mentioned above. In our case we will be masking the backgorund and replacing the foreground for the selective color. 
+The logic here is quite opposite to the one mentioned above. In our case we will be masking the backgorund and replacing it to the foreground for a selective color. 
 
 Here we implement the project for red, blue and any color to one's requirement.
 
@@ -29,7 +29,7 @@ Follow the steps moentioned under to make an implementation of project invisible
 <img src="https://github.com/rahulmadanraju/Projects/blob/master/Project_Invisible/ezgif.com-video-to-gif.gif", width="400", height="400" />
 <p>
   
-  ## 
+  
   
   --------------------------------------------------------------------------------------------------------------------------------
   
