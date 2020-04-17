@@ -6,7 +6,7 @@ This repo contains projects from various domains. The pipelines are from compute
 
 ## Hello Developers!
 
-###Welcome to Rokin :rocket:
+### Welcome to Rokin :rocket:
 
 "We revolutionize the Technology-Driven Innovation in companies"
 
@@ -32,5 +32,5 @@ This repo contains projects from various domains. The pipelines are from compute
 
 ### Here are the links to make you familiar to GitHub
 
-	-	Getting familiar with git commands: https://github.com/joshnh/Git-Commands
-	-	Getting familiar with GitHub Desktop: https://help.github.com/en/desktop/getting-started-with-github-desktop
+- Getting familiar with git commands: https://github.com/joshnh/Git-Commands
+- Getting familiar with GitHub Desktop: https://help.github.com/en/desktop/getting-started-with-github-desktop
