@@ -13,12 +13,16 @@ This repo contains projects from various domains. The pipelines are from compute
 ### Developer Tips
 
 :computer: Re-read code before opening a PR
+
 :point_up: Ask for help when stuck
+
 :star: Help others who are stuck
+
 :punch: Take tasks that scare you
+
 :mortar_board: There is always something to learn
 
-###Here are the set of instructions to be followed:
+### Here are the set of instructions to be followed:
 	-	Create a branch of the repo with the name tag: RTDev_(YourName)
 	-	Do not directly edit on the master branch
 	- 	Clone the repo to your local system
