@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ```
 3. Run the file
 ```
-python main.py
+python sum_file.py
 ```
 
 ### Model Parameters:
