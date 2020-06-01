@@ -35,9 +35,17 @@ The file - Summarization.py within folder Summarizer can be tuned for model or p
   - transformer_type
   - transformer_model_key
 2. In Bart and T5
-   - model
-   - pipeline (more information on this can be found in this blog: )
+  - model
+  - pipeline (more information on this can be found in this blog: )
    
+   
+   Please rate a star if you find this repo useful! 
+
+---------------------------------------------------------------
+
+## References:
+ - HF - Pipelines: https://huggingface.co/transformers/main_classes/pipelines.html
+ - Summarizers pkg: https://github.com/michigan-com/summarizer
    
 
 
