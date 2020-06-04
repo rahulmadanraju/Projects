@@ -1,5 +1,6 @@
 from Summarizer.Summarization import bart_summarizer, bert_summarizer, xlnet_summarizer, gpt2_summarizer, T5_summarizer
 
+
 data = """
 A greedy algorithm is a simple, intuitive algorithm that is used in optimization problems. 
 The algorithm makes the optimal choice at each step as it attempts to find the overall optimal way to solve the entire problem. 
@@ -14,10 +15,9 @@ subproblems and build a solution.
 
 """
 
-# Summarization using Bart
-summary, scores = bart_summarizer(data)
-print(summary)
-print (scores)
+#############################################
+######## Extractive Summarization ###########
+#############################################
 
 # Summarization using Bert
 summary, scores = bert_summarizer(data)
@@ -33,6 +33,17 @@ print (scores)
 summary, scores = gpt2_summarizer(data)
 print(summary)
 print (scores)
+
+#############################################
+######## Abstractive Summarization ##########
+#############################################
+
+
+# Summarization using Bart
+summary, scores = bart_summarizer(data)
+print(summary)
+print (scores)
+
 
 # Summarization using T5
 summary, scores = T5_summarizer(data)

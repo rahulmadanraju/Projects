@@ -12,13 +12,10 @@ import pprint
 
 rouge = Rouge()
 
-def bart_summarizer(data):
-    summarizer_bart = pipeline(task='summarization', model="bart-large-cnn")
-    summary_bart = summarizer_bart(data, min_length=30, max_length = 140)
-    print('Bart for Text - Summarization')
-    summary = summary_bart[0]['summary_text']
-    rouge_scores = rouge.get_scores(summary, data)
-    return summary, rouge_scores
+#############################################
+######## Extractive Summarization ###########
+#############################################
+
 
 def bert_summarizer(data):
     summarizer_bert = Summarizer()
@@ -42,6 +39,19 @@ def gpt2_summarizer(data):
     print('GPT2 for Text - Summarization')
     summary_gpt2 = summarizer_gpt2(data, min_length=20, max_length = 140)
     summary = ''.join(summary_gpt2)
+    rouge_scores = rouge.get_scores(summary, data)
+    return summary, rouge_scores
+
+
+#############################################
+######## Abstractive Summarization ##########
+#############################################
+
+def bart_summarizer(data):
+    summarizer_bart = pipeline(task='summarization', model="bart-large-cnn")
+    summary_bart = summarizer_bart(data, min_length=30, max_length = 140)
+    print('Bart for Text - Summarization')
+    summary = summary_bart[0]['summary_text']
     rouge_scores = rouge.get_scores(summary, data)
     return summary, rouge_scores
 
